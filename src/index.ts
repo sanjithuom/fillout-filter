@@ -20,7 +20,7 @@ app.get('/api/:formId/filteredResponses', (req, res): void => {
     filterFilloutResponses(requestFilter, formId).then(filtered => {
         const paginatedData = filtered.slice(offset, offset + limit);
         let responses: Responses = {
-            responses: filtered,
+            responses: paginatedData,
             totalResponses: filtered.length,
             pageCount: paginatedData.length
         }
